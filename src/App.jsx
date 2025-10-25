@@ -1,28 +1,26 @@
-import { useState } from 'react'
+import React from 'react';
+import TopBar from './components/TopBar';
+import LeftSidebar from './components/LeftSidebar';
+import Viewport3D from './components/Viewport3D';
+import RightSidebar from './components/RightSidebar';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="w-full h-screen bg-[#121212] text-gray-200 flex flex-col">
+      <TopBar />
+      <div className="flex-1 grid grid-cols-12 gap-0 min-h-0">
+        <div className="col-span-3 xl:col-span-2 min-h-0 border-r border-gray-800 bg-[#151515] overflow-hidden">
+          <LeftSidebar />
+        </div>
+        <div className="col-span-6 xl:col-span-8 min-h-0">
+          <Viewport3D />
+        </div>
+        <div className="col-span-3 xl:col-span-2 min-h-0 border-l border-gray-800 bg-[#151515] overflow-hidden">
+          <RightSidebar />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
